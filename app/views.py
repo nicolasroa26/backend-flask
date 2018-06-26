@@ -24,9 +24,8 @@ def IDgroups(grupos):
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template(
-        'index.html'
-    )
+    result = table()
+    return render_template('index.html', result = result, formulario = formulario)
 
 @app.route('/', methods=['POST'])
 def params():   
@@ -35,11 +34,11 @@ def params():
     grupos = request.form['grupos']
     usuarios = users(tokens)
     groups = IDgroups(grupos)
-    time.sleep(5)
+    result = table()
     if len(groups) >= 1 and len(usuarios) >= 1 and len(message) != 0:
         ite_groups(groups,message,usuarios)
         insert(groups, usuarios, message)
         valor1 = 'parametros enviados'
     else:
         valor1 = 'faltan parametros'
-    return render_template('index.html', valor1 = valor1)
+    return render_template('index.html', valor1 = valor1, result = result, formulario = formulario)
