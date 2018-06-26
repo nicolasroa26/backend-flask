@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  {% if title %}
+    <title>{{title}}</title>
+  {% else %}
+    <title>Mi Primera App de Flask</title>
+  {% endif %}
+</head>
+<body>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    {% block footer %}
+    {% endblock %}
+    <span>&copy; python</span>
+  </footer>
+</body>
+</html>
