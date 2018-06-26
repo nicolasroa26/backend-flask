@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% set title ='appfb' %}
+{% set title ='Aplicattion Facebook Python' %}
 	
 	{% block content %}</pre>
 	
@@ -9,11 +9,25 @@
 	<p>Tus tokens: <input type="text" id="token" name="token" value=""/></p>
 	<p>ID de grupos: <input type="text" id="grupos" name="grupos" value=""/></p>
 	<input type="submit" value="Enviar" />
-	{% if valor1 %}
-    <p>{{ valor1 }}</p>
-    {% else %}
-    <p></p>
-    {% endif %}
+    <p> {{ valor1 }} </p>
 </form> 
+<table border="1">
+	<tr>
+	    <td> ID </td>
+     	<td> MESSAGE </td>
+	    <td> USERS </td>
+	    <td> GROUPS </td>
+	    <td> STATUS </td>
+	</tr>
+		{% for row in result %}
+	<tr>
+	    <td> {{ row[formulario.c.id] }} </td>
+	    <td> {{ row[formulario.c.post] }} </td>
+        <td> {{ row[formulario.c.tokens] }} </td>
+        <td> {{ row[formulario.c.groups] }} </td>
+        <td> {{ row[formulario.c.notification] }} </td>
+    </tr>
+    {% endfor %}
+</table>
 <pre>
 {% endblock %}
