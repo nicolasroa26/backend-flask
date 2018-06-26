@@ -1,7 +1,7 @@
 from post import postfb, ite_groups
 from flask import request, redirect, render_template
 from app import app
-from db import insert, formulario
+from db import insert, formulario, table
 import time
 
 def users(tokens):
