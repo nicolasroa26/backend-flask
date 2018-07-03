@@ -4,7 +4,6 @@ from sqlalchemy.sql import select
 import sqlalchemy
 import json
 
-data = []
 engine = create_engine('postgres://uwtmzhbfvujfkb:d66ebd309832961e7ba01b6eec6f964a28981c543f9f235f7650cb9108df07ac@ec2-54-235-70-127.compute-1.amazonaws.com:5432/dcvoji6oqnp1ab', echo=True)
 con = engine.connect()
 metadata = MetaData()
@@ -30,6 +29,7 @@ def table():
 	return result
 
 def convert():
+	data = []
 	for x in result:
 		file_json = { 'id' : x[0], 'post' : x[1], 'groups' : x[3], 'notification' : x[4]}
 		data.append(file_json)
